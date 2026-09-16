@@ -36,6 +36,12 @@ try {
     console.log(error);
   }
 }
+function sortBy(criteria){
+  if(criteria=="time"){
+    console.log("sorted");
+    items.value.sort((item1, item2) => new Date(item1.time) - new Date(item2.time))
+  }
+}
 fetchItems();
 </script>
 <template>
@@ -48,6 +54,12 @@ fetchItems();
   </ul>
 </div>
    <div class="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+   <select class="select" @change="sortBy($event.target.value)">
+  <option disabled selected value="">sort By</option>
+  <option >time</option>
+  <option>Amber</option>
+  <option>Velvet</option>
+</select>
    <div v-for="item in items" :key="item.id" >
      <div class="card card-side bg-base-100 w-full shadow-md">
   <figure>
