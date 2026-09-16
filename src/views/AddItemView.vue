@@ -25,9 +25,7 @@ async function addItem(){
     
     item.value.time=item.value.time.replace("T"," ")
     console.log(item.value.time);
-    formData.append('item',new Blob([JSON.stringify(item.value)],{
-        type:"application/json"
-    }));
+    formData.append('item', JSON.stringify(item.value));
     if (getimage.value) {
         formData.append('image',getimage.value);
     }
