@@ -5,7 +5,8 @@ import { ref } from 'vue';
 async function logout(){
     try {
         const response= await axios.get("/logout");
-     router.push("/");
+        localStorage.removeItem('token');
+        router.push("/");
     } catch (error) {
         console.log(error);
     }

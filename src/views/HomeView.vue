@@ -5,11 +5,7 @@ const response=ref('');
 const user=ref('');
  async function getCurrUser(){
     try{
-    response.value= await axios.get("/user",{
-        headers:{
-            Authorization:`Bearer ${localStorage.getItem("token")}`
-        }
-    })
+    response.value= await axios.get("/user")
     user.value=response.value.data;
 }
 catch(error){
