@@ -28,7 +28,9 @@ async function addItem(){
     formData.append('item',new Blob([JSON.stringify(item.value)],{
         type:"application/json"
     }));
-    formData.append('image',getimage.value);
+    if (getimage.value) {
+        formData.append('image',getimage.value);
+    }
     try {
         const response= await axios.post("/item",formData,{
             headers:{
